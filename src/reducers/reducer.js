@@ -5,7 +5,7 @@ export const reducer = (state, action) => {
         case 'ADD_FAV': 
             return {...state, favs: [...state.favs, action.payload]} 
         case 'CHANGE_THEME':
-            return {} //INCOMPLETO
+            return { ...state, theme: state.theme === "light" ? "dark" : "light" } //INCOMPLETO
         case 'GET_CHARACTER':
             return {} //INCOMPLETO
         case 'DELETE_FAV': 

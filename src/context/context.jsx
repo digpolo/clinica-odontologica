@@ -7,7 +7,7 @@ const CharStates = createContext()
 const initialState = {
     list: [],
     favs: JSON.parse(localStorage.getItem('favs')) || [],
-    // theme
+    theme: "light"// theme
 }
 
 const Context = ({children}) => {
@@ -24,9 +24,12 @@ const Context = ({children}) => {
     useEffect(() => {
         localStorage.setItem('favs', JSON.stringify(state.favs))
     }, [state.favs])
-
+    
+    const toggleTheme = () => {
+        dispatch({ type: "TOGGLE_THEME" });
+      };
     return (
-        <CharStates.Provider value={{list, favs, dispatch}}>
+        <CharStates.Provider value={{list, favs, dispatch, toggleTheme}}>
             {children}
         </CharStates.Provider>
     )
