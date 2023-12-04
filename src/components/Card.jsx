@@ -17,10 +17,10 @@ const Card = ({item}) => {
   }
 
   return (
-    <div  className="card:hover" >
-      <Link to={'/detail/' + item.id}>
+    <div className='card' >
+      <Link className="card:hover"  to={'/detail/' + item.id}>
         <h4>{item.id}</h4>
-        <img src='./images/doctor.jpg' alt="imagen del doctor" />
+        <img className='imghome' src='./images/doctor.jpg' alt="imagen del doctor" />
         <h4><span>Name:</span>{item.name}</h4>
         <h4><span>User name:</span>{item.username}</h4>
         <img src={item.image} alt="" />

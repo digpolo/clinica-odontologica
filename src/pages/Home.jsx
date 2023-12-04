@@ -9,7 +9,7 @@ const Home = () => {
   const {list} = useCharStates()
 
   return (
-    <main className="" >
+    <main className="home" >
       <h1>Home</h1>
       <div className='card-grid'>
        {list.map(item => <Card item={item} key={item.id}/>)}
