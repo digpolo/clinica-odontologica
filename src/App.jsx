@@ -6,6 +6,7 @@ import Contact from "./pages/Contact"
 import Details from "./pages/Detail"
 import Home from "./pages/Home"
 import Favs from "./pages/Favs"
+import './index.css'
 
 
 function App() {
@@ -20,8 +21,7 @@ function App() {
       </Routes>
       <Footer />
     </div>
-
-  );
+  )
 }
 
 export default App;

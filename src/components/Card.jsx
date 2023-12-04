@@ -10,14 +10,14 @@ const Card = ({item}) => {
 
   const addFav = () => {
     if(findFav){
-      alert('Ese personaje ya está agregado a favoritos')
+      alert('Este doctor  ya está agregado a favoritos')
     } else {
       dispatch({type: 'ADD_FAV', payload: item})
     }
   }
 
   return (
-    <div style={{display:'flex', flexDirection:'column'}}>
+    <div  className="card:hover" style={{display:'flex', flexDirection:'column'}}>
       <Link to={'/detail/' + item.id}>
         <h4>{item.id}</h4>
         <img src='./images/doctor.jpg' alt="imagen del doctor" />
