@@ -7,18 +7,19 @@ import { useParams } from 'react-router-dom'
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
 
 const Detail = () => {
-  const [character, setCharacter] = useState({})
+  const [user, setUser] = useState({})
   const { id } = useParams()
   console.log(id)
-  const url = 'https://rickandmortyapi.com/api/character/' + id
+  const url = 'https://jsonplaceholder.typicode.com/users/' + id
   useEffect(() => {
-    const fetchCharacter = async () => {
+    const fetchUser = async () => {
       const res = await axios(url)
-      setCharacter(res.data)
-      // axios(url)
-      // .then(res => setCharacter(res.data))
+      setUser(res.data)
+    //   axios(url)
+    //  .then(res => setUser(res.data))
     }
-    fetchCharacter()
+
+    fetchUser()
   }, [])
   // Consumiendo el parametro dinamico de la URL deberan hacer un fetch a un user en especifico
 
@@ -26,11 +27,12 @@ const Detail = () => {
     <>
       <h1>Detail Dentist id </h1>
       <div>
-      <h3>{character.name}</h3>
-      <h4>{character.username}</h4> 
-      <h4>{character.email}</h4> 
-      <h4>{character.phone}</h4>
-      <h4>{character.website}</h4>
+        <img src="/images/doctor.jpg"/>
+      <h3><span>Name: </span>{user.name}</h3>
+      <span>User Name:</span><h4>{user.username}</h4>
+      <span>E-mail:</span><h4>{user.email}</h4>
+      <span>Phone:</span><h4>{user.phone}</h4>
+      
     </div>
     </>
   )

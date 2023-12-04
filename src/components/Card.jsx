@@ -17,7 +17,7 @@ const Card = ({item}) => {
   }
 
   return (
-    <div  className="card:hover" style={{display:'flex', flexDirection:'column'}}>
+    <div  className="card:hover" >
       <Link to={'/detail/' + item.id}>
         <h4>{item.id}</h4>
         <img src='./images/doctor.jpg' alt="imagen del doctor" />
