@@ -1,35 +1,44 @@
 import React, { useState } from 'react';
+import CardForm from './CardForm';
 
 
 const Form = () => {
   const [cliente, setCliente] = useState({
     nombre: '',
-    color: ''
-})
-const [show, setShow] = useState(false)
-const [error, setError] = useState(false)
+    email: ''
+  })
+  const [show, setShow] = useState(false)
+  const [error, setError] = useState(false)
 
-const handleSubmit = (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault()
-    if (cliente.nombre.length > 3 && !cliente.nombre.startsWith(' ') && cliente.color.length > 6) {
-        setShow(true)
-        setError(false)
+    if (cliente.nombre.length > 3 && !cliente.nombre.startsWith(' ')) {
+      setShow(true)
+      setError(false)
     } else {
-        setError(true)
-        setShow(false)
+      setError(true)
+      setShow(false)
     }
-}
-console.log(cliente)
+  }
+  console.log(cliente)
 
   return (
-    <div>
-      <form>
+    <div className='form'>
+      <form onSubmit={handleSubmit}>
         <label >Ingresa tu nombre</label>
         <input type="text" value={cliente.nombre} onChange={(event) => setCliente({ ...cliente, nombre: event.target.value.trimStart() })} />
-        <label >Ingresa tu color favorito (formato HEX)</label>
-        <input type="text" value={cliente.color} onChange={(event) => setCliente({ ...cliente, color: event.target.value.trimStart() })} />
+        <label >Cuál es tu email?</label>
+        <input type="email" value={cliente.email} onChange={(event) => setCliente({ ...cliente, email: event.target.value.trimStart() })} />
         <button>Enviar</button>
       </form>
+      {show ?
+        <>
+          <CardForm nombre={cliente.nombre} />
+        </>
+        :
+        null
+      }
+      {error && <h5 style={{ color: 'red' }}>Por favor, verifique que los datos sean correctos</h5>}
     </div>
   );
 };
